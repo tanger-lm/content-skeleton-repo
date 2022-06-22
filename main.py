@@ -26,6 +26,20 @@ def demo_trading():
     response = client.trading.account.get()
     print(response.results)
 
+    # activate buy order
+    response = client.trading.orders.create(isin='US88160R1014', side='buy', quantity=1, venue='xmun')
+    order_id = response.results.id
+    print(response.results)
+    response = client.trading.orders.activate(order_id=order_id)
+    print(response)
+
+    # cancel order
+    response = client.trading.orders.create(isin='US88160R1014', side='buy', quantity=1, venue='xmun')
+    order_id = response.results.id
+    print(response.results)
+    response = client.trading.orders.cancel(order_id=order_id)
+    print(response)
+
 
 if __name__ == '__main__':
     demo_data()
