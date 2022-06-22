@@ -1,10 +1,11 @@
 import os
-from datetime import datetime
 
 from dotenv import load_dotenv
 from lemon import api
 
 load_dotenv()
+
+# create your client
 client = api.create(
     trading_api_token=os.environ.get('TRADING_API_KEY'),
     market_data_api_token=os.environ.get('DATA_API_KEY'),
@@ -21,7 +22,7 @@ def demo_data():
 
 
 def demo_trading():
-    # activate buy order
+    # get account details
     response = client.trading.account.get()
     print(response.results)
 
