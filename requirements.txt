@@ -1,3 +1,3 @@
 python-dotenv~=0.19.0
 requests~=2.28.0
-lemon~=1.0.2 # make sure this is the most up to date version of the lemon.markets SDK
+lemon~=1.0.3 # make sure this is the most up to date version of the lemon.markets SDK
