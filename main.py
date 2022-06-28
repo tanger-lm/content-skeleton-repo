@@ -14,18 +14,20 @@ client = api.create(
 )
 
 
-def demo_data():
+def demo_venue():
     # get venues
     response = client.market_data.venues.get()
     print(response.results)
     print('\n')
 
 
-def demo_trading():
+def demo_account():
     # get account details
     response = client.trading.account.get()
     print(response.results)
 
+
+def demo_activate():
     # activate buy order
     response = client.trading.orders.create(isin='US88160R1014', side='buy', quantity=1, venue=os.getenv('MIC'))
     order_id = response.results.id
@@ -33,6 +35,8 @@ def demo_trading():
     response = client.trading.orders.activate(order_id=order_id)
     print(response)
 
+
+def demo_cancel():
     # cancel order
     response = client.trading.orders.create(
         isin='US88160R1014',
@@ -50,5 +54,7 @@ def demo_trading():
 
 
 if __name__ == '__main__':
-    demo_data()
-    demo_trading()
+    demo_venue()
+    demo_account()
+    demo_activate()
+    demo_cancel()
